@@ -15,3 +15,6 @@ git branch -d <имя ветки> - удалить ветку
 git merge <имя ветки> - объединить ветку в текущий коммит
 git clone <ссылка на репозитории> - клонировать репозитории
 
+git remote add origin https://github.com/Stanislav-Wise/JavaRush.git
+git branch -M main
+git push -u origin main
