@@ -18,4 +18,7 @@ git clone <ссылка на репозитории> - клонировать р
 git remote add origin https://github.com/Stanislav-Wise/JavaRush.git  
 git branch -M main  
 git push -u origin main  
+
+git log --graph - Показывает журнал в виде графа 
+git log --oneline - Показывает журнал в виде строки
   
