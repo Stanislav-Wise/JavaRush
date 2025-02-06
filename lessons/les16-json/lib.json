@@ -1,0 +1,17 @@
+{
+    "libraryName": "Timberland Virtual Library",
+    "establishedYear": 2021,
+    "isOpen": true,
+    "sections": [
+        {
+            "sectionName": "Science Fiction",
+            "bookCount": 120
+        },
+        {
+            "sectionName": "History",
+            "bookCount": 50
+        }
+    ],
+    "accessRules": null,
+    "topLanguages": ["English", "Spanish", "Russian", "German"]
+}

@@ -1,0 +1,12 @@
+{
+    "users": [
+        {
+            "1": "Боб",
+            "active": true
+        },
+        {
+            "username": "jane_smith",
+            "active": false
+        }
+    ]
+}
