@@ -3,7 +3,7 @@ name = "les20-poetry-pathlib"
 version = "0.1.1"
 description = ""
 authors = [
-    {name = "Stanislav",email = "stanislav3@gmail.com"}
+    {name = "Stanislav",email = "stanislav@gmail.com"}
 ]
 readme = "README.md"
 requires-python = ">=3.12"
