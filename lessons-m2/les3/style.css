@@ -1,0 +1,23 @@
+h2 {
+    color: yellowgreen;
+    font-size: 15px;
+}
+p {
+    color: green;
+}
+
+.myclass {
+    color: gold;
+}
+
+.myclass1 {
+    font-size: 35px;
+    font-family: Ubuntu;
+    font-weight: 400;
+    /*font-style: italic;*/
+
+}
+
+#myid {
+    color: darkblue;
+}
