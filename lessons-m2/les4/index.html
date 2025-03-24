@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Урок 4</title>
+    <style>
+        button {
+            background-color: blue;
+            color: chartreuse;
+            font-size: 20px;
+        }
+
+        button:hover {
+            background-color: red;
+        }
+
+        button:active {
+            background-color: green;
+        }
+
+        h1 {
+            color: red;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        h1::before, h1::after {
+            content: '!!!';
+            color: gold;
+        }
+
+        p:first-letter {
+            color: red;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+<!--    <h1>Занятие 4</h1>-->
+
+
+<!--    &lt;!&ndash; Подключаем внешний файл script&ndash;&gt;-->
+<!--&lt;!&ndash;    <script src="script.js"></script>&ndash;&gt;-->
+
+<!--    &lt;!&ndash; Встраиваем в HTML script&ndash;&gt;-->
+<!--&lt;!&ndash; <script>&ndash;&gt;-->
+<!--&lt;!&ndash;     console.log('Привет, Мир 2 !!!')&ndash;&gt;-->
+<!--&lt;!&ndash;     alert('Привет, Мир 3 !!!')&ndash;&gt;-->
+<!--&lt;!&ndash; </script>&ndash;&gt;-->
+
+<!--    &lt;!&ndash; Встраиваем inline script&ndash;&gt;-->
+<!--<button onclick="alert('Привет, Мир 4 !!!')">Кнопка</button>-->
+
+
+<header>
+
+    <form onsubmit="alert('Форма отправлена')">
+        <input type="text"
+               placeholder="Введите имя"
+                onfocus="this.style.fontSize='20px'; this.style.background='red';"
+                onblur="this.style.fontSize='40px'; this.style.background='gold';">
+        <input type="file" enctype="multipart/form-data" name="file" >
+        <button type="submit">Отправить</button>
+    </form>
+
+
+    <!--    <h1> 123 </h1>-->
+    <!--    <h1> 123 </h1>-->
+
+
+    <p>Hello</p>
+    <h2><span style="color: red; font-size: 30px">П</span>ривет</h2>
+
+    <nav>
+        <div style="background: red; padding: 30px 40px 25px 50px; border: 5px solid green; margin: 30px">Это контент
+            блока
+        </div>
+    </nav>
+</header>
+
+<main>
+    <article>
+        <img src="tanos.jpeg" alt="Танос">
+        <img src="tanos.jpeg" alt="Танос">
+    </article>
+</main>
+
+<footer>
+    <form action="/submit-form" method="post">
+        <label for="username">Ваше имя</label>
+        <input type="text" id="username" name="username">
+
+        <br>
+        <label for="username">Ваш пароль</label>
+        <input type="password" id="username" name="password">
+        <br>
+        <label for="username">Ваше email</label>
+        <input type="email" id="username" name="username">
+        <input type="date" id="username" name="username">
+        <input type="checkbox" id="username" name="username">
+        <input type="radio" id="username" name="username">
+        <input type="radio" id="username" name="username">
+        <input type="radio" id="username" name="username">
+        <br>
+        <input type="checkbox" name="hobbies" value="reading">Чтение<br>
+        <input type="checkbox" name="hobbies" value="coding">Программирование<br>
+
+        <input type="radio" name="gender" value="male">Мужской1<br>
+        <input type="radio" name="gender" value="female">Женский1<br>
+
+        <input type="radio" name="gender1" value="male">Мужской2<br>
+        <input type="radio" name="gender1" value="female">Женский2<br>
+
+        <br>
+
+        <select name="cars">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <optgroup label="German Cars">
+                <option value="audi">Audi</option>
+                <option value="bmw">BMW</option>
+            </optgroup>
+        </select>
+
+        <br>
+
+        <button type="submit">Отправить</button>
+    </form>
+</footer>
+
+</body>
+</html>
