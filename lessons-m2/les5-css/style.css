@@ -1,0 +1,68 @@
+:root {
+    --primary-color: gold;
+    --primary-sizy: 50px;
+}
+
+@font-face {
+    font-family: "MyFont";
+    src: url("/font/myfont.woff2");
+}
+
+body {
+    font-family: "MyFont", sans-serif;
+}
+/*div p {*/
+/*    color: darkblue;*/
+/*}*/
+
+/*div > p {*/
+/*    color: darkblue;*/
+/*}*/
+
+
+/*h1 + p {*/
+/*    color: darkblue;*/
+/*}*/
+
+
+
+/*p {*/
+/*    --my-color: red;*/
+/*    color: var(--my-color);*/
+/*    font-size: var(--primary-sizy);*/
+/*}*/
+
+/*[href="https://google.com"] {*/
+/*    background-color: gold;*/
+/*}*/
+
+
+[href^="https"] {
+    --primary-color: black;
+    background-color: var(--primary-color);
+}
+
+[href$=".com"] {
+    background-color: olivedrab;
+}
+
+[href*="youtube"] {
+    background-color: var(--my-color, gold);
+}
+
+
+/*p {*/
+/*    color: blue !important;*/
+/*}*/
+
+/*p {*/
+/*    font: 30px Arial, sans-serif;*/
+/*}*/
+
+p {
+    font-style: italic;
+    font-size: 30px;
+    line-height: 20px;
+    font-family: "Times New Roman";
+    f
+}
