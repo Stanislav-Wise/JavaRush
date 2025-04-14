@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Зоопарк</title>
+  <style>
+    body { font-family: sans-serif; margin: 20px; }
+    input, button, select { margin: 5px; }
+    .card { border: 1px solid #ccc; padding: 10px; margin: 10px 0; }
+  </style>
+</head>
+<body>
+
+  <h1>🦜 Зоопарк</h1>
+
+  <input type="text" id="nameInput" placeholder="Имя животного">
+  <select id="typeSelect">
+    <option value="bird">Птица</option>
+    <option value="penguin">Пингвин</option>
+    <option value="animal">Обычное животное</option>
+  </select>
+  <label>
+    <input type="checkbox" id="canFlyCheckbox" checked>
+    Умеет летать
+  </label>
+  <button id="createBtn">Создать</button>
+
+  <h2>Созданные животные:</h2>
+  <div id="zooList"></div>
+
+  <script>
+    let idCounter = 1;
+
+    class Animal {
+      #id;
+      constructor(name) {
+        this.name = name;
+        this.#id = idCounter++;
+      }
+
+      eat() {
+        alert(`${this.name} ест`);
+      }
+
+      getId() {
+        alert(`${this.name} — ID: ${this.#id}`);
+      }
+    }
+
+    class Bird extends Animal {
+      static total = 0;
+      #canFly;
+      constructor(name, canFly = true) {
+        super(name);
+        this.#canFly = canFly;
+        Bird.total++;
+      }
+
+      fly() {
+        if (this.#canFly) {
+          alert(`${this.name} летает`);
+        } else {
+          alert(`${this.name} не умеет летать`);
+        }
+      }
+
+      eat() {
+        super.eat();
+        alert(`${this.name} клюёт зёрна`);
+      }
+
+      static getTotal() {
+        return Bird.total;
+      }
+    }
+
+    class Penguin extends Bird {
+      constructor(name) {
+        super(name, false);
+      }
+
+      fly() {
+        alert(`${this.name} не летает, но хорошо плавает`);
+      }
+
+      swim() {
+        alert(`${this.name} плывёт в воде`);
+      }
+    }
+
+    // DOM элементы
+    const nameInput = document.getElementById('nameInput');
+    const typeSelect = document.getElementById('typeSelect');
+    const canFlyCheckbox = document.getElementById('canFlyCheckbox');
+    const zooList = document.getElementById('zooList');
+    const createBtn = document.getElementById('createBtn');
+
+    // Хранилище всех созданных животных
+    const animals = [];
+
+    createBtn.addEventListener('click', () => {
+      const name = nameInput.value.trim();
+      const type = typeSelect.value;
+      const canFly = canFlyCheckbox.checked;
+
+      if (!name) {
+        alert("Введите имя!");
+        return;
+      }
+
+      let animal;
+
+      if (type === 'bird') {
+        animal = new Bird(name, canFly);
+      } else if (type === 'penguin') {
+        animal = new Penguin(name);
+      } else {
+        animal = new Animal(name);
+      }
+
+      animals.push(animal);
+      renderAnimalCard(animal, type);
+
+      nameInput.value = '';
+    });
+
+    function renderAnimalCard(animal, type) {
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      const title = document.createElement('strong');
+      title.textContent = `${animal.name} (${type})`;
+
+      const feedBtn = document.createElement('button');
+      feedBtn.textContent = 'Покормить';
+      feedBtn.addEventListener('click', () => animal.eat());
+
+      const actionBtn = document.createElement('button');
+      actionBtn.textContent = 'Действие';
+      actionBtn.addEventListener('click', () => {
+        if (typeof animal.fly === 'function') {
+          animal.fly();
+        } else if (typeof animal.swim === 'function') {
+          animal.swim();
+        } else {
+          alert(`${animal.name} ничего не делает`);
+        }
+      });
+
+      const idBtn = document.createElement('button');
+      idBtn.textContent = 'Показать ID';
+      idBtn.addEventListener('click', () => animal.getId());
+
+      // Добавим всё в карточку
+      card.appendChild(title);
+      card.appendChild(document.createElement('br'));
+      card.appendChild(feedBtn);
+      card.appendChild(actionBtn);
+      card.appendChild(idBtn);
+
+      zooList.appendChild(card);
+    }
+  </script>
+</body>
+</html>
