@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Манипуляция стилями</title>
+  <style>
+    .card {
+      width: 200px;
+      padding: 20px;
+      border: 1px solid #aaa;
+      margin: 10px 0;
+      transition: all 0.3s ease;
+    }
+
+    .highlight {
+      background-color: gold;
+      color: darkblue;
+      font-weight: bold;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <h1>Изменим стили элемента</h1>
+
+  <div id="box" class="card">
+    Я — элемент, со мной можно поиграть!
+  </div>
+
+  <button onclick="changeStyle()">🎨 Прямое изменение</button>
+  <button onclick="toggleClass()">💡 Переключить класс</button>
+  <button onclick="showComputed()">🔍 Показать текущий стиль</button>
+
+  <p id="output" style="font-family: monospace;"></p>
+
+  <script>
+    const box = document.getElementById("box");
+    const output = document.getElementById("output");
+
+    function changeStyle() {
+      box.style.backgroundColor = "#b0e0e6"; // light blue
+      box.style.border = "2px dashed navy";
+      box.style.padding = "30px";
+      output.textContent = "🎨 Стиль изменён через JS напрямую.";
+    }
+
+    function toggleClass() {
+      box.classList.toggle("highlight");
+      output.textContent = "💡 Класс 'highlight' переключён.";
+    }
+
+    function showComputed() {
+      const styles = window.getComputedStyle(box);
+      const bg = styles.backgroundColor;
+      const padding = styles.padding;
+      output.textContent = `🔎 Фоновый цвет: ${bg}, padding: ${padding}`;
+    }
+  </script>
+</body>
+</html>

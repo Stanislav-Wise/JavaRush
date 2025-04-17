@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Объект window</title>
+</head>
+<body>
+    <button onclick="showWindowSize()"> Размер окна </button>
+    <button onclick="showGlobalVariable()"> Глобальная переменная </button>
+    <button onclick="testAlert()"> alert() </button>
+    <button onclick="openJavarush()"> Открыть javarush </button>
+
+    <script>
+        function showWindowSize() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            alert(`Ширина:  ${width} px`);
+            alert(`Высота:  ${height} px`);
+
+        }
+
+        function showGlobalVariable() {
+            user_name = 'Bob';
+            alert(`Имя:  ${user_name} `);
+
+        }
+
+
+        function testAlert() {
+            window.alert('Hello!');
+        }
+
+        function openJavarush() {
+            window.open('https://javarush.com/');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Объект screen</title>
+</head>
+<body>
+    <button onclick="showScreenW()"> Общая ширина</button>
+    <button onclick="showScreenH()"> Общая высота</button>
+    <button onclick="showW()"> Доступная ширина</button>
+    <button onclick="showH()"> Доступнаяя высота</button>
+
+
+    <script>
+        function showScreenW() {
+            alert(`${screen.width}`);
+        }
+
+        function showScreenH() {
+            alert(`${screen.height}`);
+
+        }
+
+        function showW() {
+            alert(`${screen.availWidth}`);
+        }
+
+        function showH() {
+            alert(`${screen.availHeight}`);
+        }
+
+
+
+</script>
+</body>
+</html>

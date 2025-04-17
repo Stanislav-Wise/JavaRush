@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Навигация по DOM</title>
+  <style>
+    .highlight {
+      background-color: lightyellow;
+      border: 1px solid orange;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div id="family">
+    <p>Первый параграф</p>
+    <p id="middle">Средний параграф</p>
+    <p>Последний параграф</p>
+  </div>
+
+  <button onclick="highlightParent()">👆 Родитель</button>
+  <button onclick="highlightChildren()">👇 Дети</button>
+  <button onclick="highlightSiblings()">➡️ Соседи</button>
+
+  <script>
+    function highlightParent() {
+      const middle = document.getElementById("middle");
+      const parent = middle.parentNode;
+      parent.classList.toggle("highlight");
+    }
+
+    function highlightChildren() {
+      const parent = document.getElementById("family");
+      for (let child of parent.children) {
+        child.classList.toggle("highlight");
+      }
+    }
+
+    function highlightSiblings() {
+      const middle = document.getElementById("middle");
+      const prev = middle.previousElementSibling;
+      const next = middle.nextElementSibling;
+
+      if (prev) prev.classList.toggle("highlight");
+      if (next) next.classList.toggle("highlight");
+    }
+  </script>
+</body>
+</html>

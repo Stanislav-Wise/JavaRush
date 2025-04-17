@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Объект location</title>
+</head>
+<body>
+    <button onclick="showURL()"> Показать адрес </button>
+    <button onclick="goToSite()"> Перейти на сайт </button>
+    <button onclick="showParts()"> разобрать URL </button>
+    <button onclick="reloadPage()"> Обновить страницу </button>
+
+
+    <script>
+        function showURL() {
+            alert(`Наш URL ${location.href}`);
+        }
+
+        function goToSite() {
+            location.href = "https://javarush.com";
+            alert(`Переходим ${location.href}`);
+        }
+
+        function showParts() {
+            alert(`Наш протокол ${location.protocol}`)
+            alert(`Наш хост ${location.host}`)
+            alert(`Наш имя ${location.hostname}`)
+            alert(`Наш порт ${location.port}`)
+            alert(`Наш путь ${location.pathname}`)
+        }
+
+        function reloadPage() {
+            location.reload()
+        }
+
+    </script>
+</body>
+</html>

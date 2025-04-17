@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Методы DOM</title>
+  <style>
+    .item {
+      padding: 5px;
+      margin: 5px;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>Методы работы с DOM</h1>
+  <div id="container"></div>
+
+  <button onclick="addItem()">➕ Добавить элемент</button>
+  <button onclick="prependItem()">🔝 Добавить в начало</button>
+  <button onclick="insertBeforeSecond()">↪️ Вставить перед вторым</button>
+  <button onclick="cloneFirst()">🧬 Клонировать первый</button>
+  <button onclick="removeLast()">❌ Удалить последний</button>
+
+  <script>
+    let counter = 1;
+
+    function createNewItem(text) {
+      const newDiv = document.createElement("div");
+      newDiv.className = "item";
+      newDiv.textContent = text;
+      return newDiv;
+    }
+
+    function addItem() {
+      const container = document.getElementById("container");
+      const item = createNewItem("Элемент " + counter++);
+      container.appendChild(item);
+    }
+
+    function prependItem() {
+      const container = document.getElementById("container");
+      const item = createNewItem("🔝 Первый " + counter++);
+      container.prepend(item);
+    }
+
+    function insertBeforeSecond() {
+      const container = document.getElementById("container");
+      const second = container.children[1];
+      const item = createNewItem("↪️ Перед вторым " + counter++);
+      if (second) {
+        container.insertBefore(item, second);
+      } else {
+        container.appendChild(item);
+      }
+    }
+
+    function cloneFirst() {
+      const container = document.getElementById("container");
+      const first = container.firstElementChild;
+      if (first) {
+        const clone = first.cloneNode(true);
+        clone.textContent += " 🧬 (клон)";
+        container.appendChild(clone);
+      }
+    }
+
+    function removeLast() {
+      const container = document.getElementById("container");
+      const last = container.lastElementChild;
+      if (last) {
+        last.remove();
+      }
+    }
+  </script>
+</body>
+</html>

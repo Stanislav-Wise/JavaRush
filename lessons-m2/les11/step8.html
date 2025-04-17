@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Создание и вставка элементов</title>
+  <style>
+    .card {
+      border: 1px solid #aaa;
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #f8f8f8;
+    }
+  </style>
+</head>
+<body>
+  <h1>Добавим карточки на страницу</h1>
+
+  <button onclick="addCard()">🧱 Создать и вставить карточку</button>
+
+  <div id="container"></div>
+
+  <script>
+    let count = 1;
+
+    function addCard() {
+      const container = document.getElementById("container");
+
+      // 1. Создаём новый <div>
+      const card = document.createElement("div");
+
+      // 2. Настраиваем его
+      card.className = "card";
+      card.textContent = `Карточка №${count++}`;
+
+      // 3. Вставляем в DOM
+      container.appendChild(card);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Атрибуты</title>
+  <style>
+    img {
+      border: 3px solid #ccc;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Работа с атрибутами</h1>
+
+  <img id="cat" src="tanos.jpeg" alt="Танос" width="700">
+
+  <br>
+  <button onclick="changeSrc()">🖼 Поменять картинку</button>
+  <button onclick="readAlt()">🔍 Прочитать alt</button>
+  <button onclick="toggleAlt()">🗯 Переключить alt</button>
+  <button onclick="removeWidth()">❌ Удалить width</button>
+
+  <p id="output"></p>
+
+  <script>
+    const img = document.getElementById("cat");
+    const output = document.getElementById("output");
+
+    function changeSrc() {
+      img.setAttribute("src", "tanos2.jpeg");
+    }
+
+    function readAlt() {
+      const alt = img.getAttribute("alt");
+      output.textContent = `Alt: ${alt}`;
+    }
+
+    function toggleAlt() {
+      if (img.hasAttribute("alt")) {
+        img.removeAttribute("alt");
+        output.textContent = "Атрибут alt удалён.";
+      } else {
+        img.setAttribute("alt", "Милый котик");
+        output.textContent = "Атрибут alt установлен.";
+      }
+    }
+
+    function removeWidth() {
+      img.removeAttribute("width");
+      output.textContent = "Ширина удалена.";
+    }
+  </script>
+</body>
+</html>

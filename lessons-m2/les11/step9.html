@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Методы элементов</title>
+  <style>
+    .box {
+      background: #eef;
+      border: 1px solid #99c;
+      padding: 10px;
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Методы работы с элементами</h1>
+
+  <button onclick="appendBox()">➕ appendChild</button>
+  <button onclick="prependBox()">🔝 prepend</button>
+  <button onclick="insertBeforeBox()">↪️ insertBefore</button>
+  <button onclick="cloneFirst()">🧬 cloneNode</button>
+  <button onclick="removeLast()">❌ remove</button>
+
+  <div id="container"></div>
+
+  <script>
+    let count = 1;
+
+    function createBox(text) {
+      const div = document.createElement("div");
+      div.className = "box";
+      div.textContent = text;
+      return div;
+    }
+
+    function appendBox() {
+      const container = document.getElementById("container");
+      const box = createBox("appendChild: " + count++);
+      container.appendChild(box);
+    }
+
+    function prependBox() {
+      const container = document.getElementById("container");
+      const box = createBox("prepend: " + count++);
+      container.prepend(box);
+    }
+
+    function insertBeforeBox() {
+      const container = document.getElementById("container");
+      const second = container.children[1];
+      const box = createBox("insertBefore: " + count++);
+      if (second) {
+        container.insertBefore(box, second);
+      } else {
+        container.appendChild(box);
+      }
+    }
+
+    function cloneFirst() {
+      const container = document.getElementById("container");
+      const first = container.firstElementChild;
+      if (first) {
+        const clone = first.cloneNode(true);
+        clone.textContent += " 🧬 (копия)";
+        container.appendChild(clone);
+      }
+    }
+
+    function removeLast() {
+      const container = document.getElementById("container");
+      const last = container.lastElementChild;
+      if (last) {
+        last.remove();
+      }
+    }
+  </script>
+</body>
+</html>
