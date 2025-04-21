@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Scroll Demo</title>
+  <style>
+    body {
+      height: 2000px; /* делаем страницу длинной */
+      margin: 0;
+    }
+
+    #scrollInfo {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+<div id="scrollInfo">Scroll: 0px</div>
+
+<script>
+  const scrollInfo = document.getElementById('scrollInfo');
+
+  window.addEventListener('scroll', () => {
+    scrollInfo.textContent = `Scroll: ${window.pageYOffset}px`;
+  });
+</script>
+
+</body>
+</html>

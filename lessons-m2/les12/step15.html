@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Scroll to top</title>
+  <style>
+    body {
+      height: 3000px;
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    #topButton {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 15px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      display: none;
+      cursor: pointer;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+
+<button id="topButton">⬆ Наверх</button>
+
+<script>
+  const button = document.getElementById('topButton');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > window.innerHeight) {
+      button.style.display = 'block';
+    } else {
+      button.style.display = 'none';
+    }
+  });
+
+  button.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+</body>
+</html>

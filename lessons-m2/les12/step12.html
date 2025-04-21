@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>События клавиатуры</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    input {
+      font-size: 1.2em;
+      padding: 10px;
+    }
+    #log {
+      margin-top: 20px;
+      padding: 10px;
+      background: #f0f0f0;
+      min-height: 60px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Введите что-нибудь с клавиатуры:</h2>
+<input type="text" id="input" placeholder="Фокусируй и нажимай клавиши">
+<div id="log">Здесь будет информация о клавишах…</div>
+
+<script>
+  const input = document.getElementById('input');
+  const log = document.getElementById('log');
+
+  input.addEventListener('keydown', function(event) {
+    const info = `
+      <b>keydown</b><br>
+      key: ${event.key}<br>
+      code: ${event.code}<br>
+      ctrlKey: ${event.ctrlKey}<br>
+      shiftKey: ${event.shiftKey}<br>
+      altKey: ${event.altKey}<br>
+      repeat: ${event.repeat}
+    `;
+    log.innerHTML = info;
+  });
+
+  input.addEventListener('keyup', function(event) {
+    log.innerHTML += `<br><b>keyup</b>: ${event.key}`;
+  });
+</script>
+
+</body>
+</html>

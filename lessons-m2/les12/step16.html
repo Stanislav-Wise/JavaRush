@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Infinite Scroll</title>
+  <style>
+    #content {
+      padding: 20px;
+      font-family: sans-serif;
+    }
+
+    .item {
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: #eee;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+<div id="content">
+  <div class="item">Старт страницы</div>
+</div>
+
+<script>
+  const content = document.getElementById('content');
+
+  function addItem() {
+    const div = document.createElement('div');
+    div.className = 'item';
+    div.textContent = 'Новая запись: ' + new Date().toLocaleString();
+    content.appendChild(div);
+  }
+
+  window.addEventListener('scroll', () => {
+    const scrollBottom = document.documentElement.scrollHeight - window.scrollY - window.innerHeight;
+
+    if (scrollBottom < 100) {
+      addItem();
+    }
+  });
+</script>
+
+</body>
+</html>

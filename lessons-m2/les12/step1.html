@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Событие нажатия на кнопку</title>
+</head>
+<body>
+    <button id="myButton"> Нажми меня </button>
+    <img src="tanos.jpeg" alt="Tanos" id="myImg">
+<script>
+    const button = document.getElementById("myButton");
+    button.addEventListener("click", function() {
+        alert("Кнопка нажата!"); button.textContent = "Кнопка нажата!";
+    });
+
+        const image = document.getElementById("myImg");
+    image.addEventListener("click", function() {
+        alert("Img нажата!"); image.alt = "Image нажата!";
+    });
+</script>
+</body>
+</html>

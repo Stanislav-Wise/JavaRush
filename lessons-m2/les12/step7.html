@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Событие с данными</title>
+</head>
+<body>
+
+  <button id="createUserBtn">Создать пользователя</button>
+
+  <script>
+    const button = document.getElementById('createUserBtn');
+
+    button.addEventListener('user-created', function(event) {
+      alert("Пользователь создан: " + event.detail.username);
+    });
+
+    button.addEventListener('click', function() {
+      const customEvent = new CustomEvent("user-created", {
+        detail: { username: "Alice1" }
+      });
+
+      button.dispatchEvent(customEvent);
+    });
+  </script>
+
+</body>
+</html>

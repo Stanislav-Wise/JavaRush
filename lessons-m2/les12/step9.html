@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>mousemove demo</title>
+</head>
+<body>
+
+  <p>Координаты мыши: <span id="coords">0, 0</span></p>
+
+  <script>
+    const coords = document.getElementById('coords');
+
+    document.addEventListener('mousemove', (event) => {
+      coords.textContent = `${event.clientX}, ${event.clientY}`;
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Отмена действия по умолчанию</title>
+</head>
+<body>
+
+  <p>Кликни по ссылке — перехода не будет:</p>
+  <a href="https://google.com" id="myLink">Перейти на Google</a>
+
+  <script>
+    const link = document.getElementById('myLink');
+
+    link.addEventListener('click', function(event) {
+      event.preventDefault();
+      alert('Ссылка нажата, но переход отменён!');
+    });
+  </script>
+
+</body>
+</html>

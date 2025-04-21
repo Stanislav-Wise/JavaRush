@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Всплытие и погружение</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    #parent {
+      border: 2px solid blue;
+      padding: 20px;
+    }
+    #child {
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>События: всплытие и погружение</h1>
+
+  <div id="parent">
+    <button id="child">Кликни меня</button>
+  </div>
+
+  <script>
+    const parent = document.getElementById('parent');
+    const child = document.getElementById('child');
+
+    parent.addEventListener('click', function() {
+      console.log('Событие всплыло до div#parent');
+    });
+
+    child.addEventListener('click', function() {
+      console.log('Клик по кнопке button#child');
+    });
+
+    document.addEventListener('click', function() {
+      console.log('Событие дошло до document');
+    }, true);
+  </script>
+
+</body>
+</html>

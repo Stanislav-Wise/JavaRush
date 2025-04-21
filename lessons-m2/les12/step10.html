@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>mouseover / mouseout</title>
+  <style>
+    .block {
+      width: 200px;
+      height: 100px;
+      background: lightblue;
+      margin: 10px;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="block" id="outer">
+    Внешний блок
+    <div class="block" id="inner" style="background: lightgreen;">Внутренний блок</div>
+  </div>
+
+  <script>
+    const outer = document.getElementById('outer');
+
+    outer.addEventListener('mouseover', (event) => {
+      console.log('mouseover: ' + event.target.id);
+    });
+
+    outer.addEventListener('mouseout', (event) => {
+      console.log('mouseout: ' + event.target.id);
+      outer.style.backgroundColor = 'black';
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>События мыши</title>
+</head>
+<body>
+
+  <button id="btn">Нажми меня</button>
+
+  <script>
+    const button = document.getElementById('btn');
+
+    button.addEventListener('mousedown', () => {
+      console.log('mousedown: кнопка нажата');
+    });
+
+    button.addEventListener('mouseup', () => {
+      console.log('mouseup: кнопка отпущена');
+    });
+
+    button.addEventListener('click', () => {
+      console.log('click: произошёл клик');
+    });
+
+    button.addEventListener('dblclick', () => {
+      console.log('dblclick: двойной клик');
+    });
+  </script>
+
+</body>
+</html>
