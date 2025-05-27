@@ -1,0 +1,21 @@
+version: '3.9'
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DD}
+    volumes:
+      - pgdata:/....
+
+  web:
+    build: .
+    command:
+
+    depends_on:
+      - db
+
+volumes:
+networks:
+  backend_net:
