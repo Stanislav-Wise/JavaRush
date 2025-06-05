@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Сервер картинок</title>
+</head>
+<body>
+
+    <h1>Загрузить картинку</h1>
+    <ul>
+    <li><a href="/upload">Загрузить изображение</a></li>
+    <li><a href="/images">Посмотреть изображения</a></li>
+    </ul>
+
+    <form action="/upload/" enctype="multipart/form-data" method="post">
+        <input type="file" name="file" accept=".jpg, .jpeg, .png, .gif" required>
+        <br>
+        <input type="submit" value="Загрузить">
+    </form>
+</body>
+</html>
