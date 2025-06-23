@@ -1,0 +1,9 @@
+CREATE TABLE review (
+	review_id SERIAL PRIMARY KEY,
+	film_id INTEGER NOT NULL,
+	customer_id INTEGER NOT NULL,
+	review_text TEXT,
+	rating NUMERIC(2, 1) NOT NULL,
+	review_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	is_active BOOLEAN DEFAULT TRUE
+);
