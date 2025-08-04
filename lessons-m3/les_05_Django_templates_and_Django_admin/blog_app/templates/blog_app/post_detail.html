@@ -1,0 +1,40 @@
+{% extends 'blog_app/base.html' %}
+
+{% block title %}
+    {{ post.title }}
+{% endblock %}
+
+
+{% block content %}
+    <h1>{{ post.title }}</h1>
+    <p><b>Автор: {{ post.author.name }}</b></p>
+    <p>{{ post.content }}</p>
+    <p><i> Рейтинг: {{ post.rating }} </i></p>
+    <small>Дата создания: {{ post.created_at }} </small>
+
+    <hr>
+    <h3>Тэги</h3>
+    <ul>
+        {% for tag in tags %}
+            <li class="badge bg-primary text-white"> {{ tag.name}} </li>
+        {% empty %}
+            <p>Нет тегов</p>
+        {% endfor %}
+    </ul>
+
+    <hr>
+    <h3>Комментарии</h3>
+    <ul class="list-group">
+        {% for comment in comments %}
+            <li class="list-group-item">
+                <p><b> {{ comment.author.name}}</b></p>
+                <p> {{ comment.text}}</p>
+                <small><i> {{ comment.created_at}}</i></small>
+            </li>
+        {% empty %}
+            <p>Нет комментариев</p>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
+
