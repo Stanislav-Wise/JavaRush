@@ -1,0 +1,23 @@
+{% extends 'blog_app/base.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+
+{% block content %}
+    <h1>Список постов!</h1>
+    <ul class="list-group">
+        {% for post in posts %}
+            <li class="list-group-item">
+                <a href="{% url 'post_detail' post.pk %}"><h5>{{ post.title }}</h5></a>
+                <p> {{ post.content|truncatechars:50}}</p>
+                <small>Автор: {{ post.author.name }} | Рейтинг: {{ post.rating }}</small>
+            </li>
+        {% empty %}
+            <p>Постов нет</p>
+        {% endfor %}
+    </ul>
+    <p>Это главная страница вашего блога. Здесь вы можете найти последние обновления и новости.</p>
+{% endblock %}
+
