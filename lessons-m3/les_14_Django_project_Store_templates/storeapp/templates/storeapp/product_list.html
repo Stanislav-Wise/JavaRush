@@ -1,0 +1,21 @@
+{% extends 'storeapp/base.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+
+{% block content %}
+    <h1>Product list!</h1>
+    <ul class="list-group">
+        {% for product in products %}
+            <li class="list-group-item">
+                <a href="{% url 'product_detail' product.pk %}"><h5>{{ product.name }}</h5></a>
+                <small>Description: {{ product.description }} | Price: {{ product.price }}</small>
+            </li>
+        {% empty %}
+            <p>No products</p>
+        {% endfor %}
+    </ul>
+    <p>This is the main page of your store.</p>
+{% endblock %}

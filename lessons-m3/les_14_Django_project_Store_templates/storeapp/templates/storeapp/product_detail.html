@@ -1,0 +1,14 @@
+{% extends 'storeapp/base.html' %}
+
+{% block title %}
+    {{ product.name }}
+{% endblock %}
+
+
+{% block content %}
+    <h1>{{ product.name }}</h1>
+    <p><b>Description: {{ product.description }}</b></p>
+    <p><i> Price: {{ product.price }} </i></p>
+
+
+{% endblock %}
