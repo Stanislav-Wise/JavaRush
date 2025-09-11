@@ -1,0 +1,20 @@
+{% extends 'blog_app/base.html' %}
+
+{% block title %}
+    Удаление поста
+{% endblock %}
+
+
+{% block content %}
+    <h1>Вы уверены, что хотите удалить пост?</h1>
+    <h3>{{ object.title }}</h3>
+    <hp>{{ object.content }}</hp>
+
+    <form method="post" class="mt-4">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Удалить пост</button>
+        <a href="{% url 'post_list' %}" class="btn btn-secondary mt-3">Отмена</a>
+    </form>
+
+{% endblock %}
+
