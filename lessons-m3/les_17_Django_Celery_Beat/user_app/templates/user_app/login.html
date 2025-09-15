@@ -1,0 +1,21 @@
+{% extends 'blog_app/base.html' %}
+
+{% block title %}
+    Вход
+{% endblock %}
+
+
+{% block content %}
+    <h2>Вход в личный кабинет</h2>
+    <form method="post">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Войти</button>
+    </form>
+
+    <p>
+        Нет акаунта? <a href="{% url 'register' %}">Зарегистрироваться</a>
+    </p>
+{% endblock %}
+
