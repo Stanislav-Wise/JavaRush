@@ -1,0 +1,22 @@
+{% extends 'blog_app/base.html' %}
+
+{% block title %}
+    {{ author.name }}
+{% endblock %}
+
+
+{% block content %}
+    <h1>{{ author.name  }}</h1>
+    <h3>Все посты автора</h3>
+    <ul class="list-group">
+        {% for post in author.posts.all %}
+            <li class="list-group-item">
+                 <a href="{% url 'post_detail' post.pk %}"><h5>{{ post.title }}</h5></a>
+            </li>
+        {% empty %}
+            <p>У автора постов нет</p>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
+
