@@ -1,0 +1,15 @@
+{% extends 'blog_app/base.html' %}
+
+{% block title %}
+    Выход
+{% endblock %}
+
+
+{% block content %}
+    <h2>Вы вышли из аккаунта</h2>
+
+    <p>
+        Войти снова? <a href="{% url 'login' %}" class="btn btn-primary">Войти</a>
+    </p>
+{% endblock %}
+
