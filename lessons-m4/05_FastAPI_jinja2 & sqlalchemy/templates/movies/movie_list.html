@@ -1,0 +1,32 @@
+{# Этот шаблон основан на базовом #}
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+
+{% block content %}
+
+    <h1>Добро пожаловать!</h1>
+    <p>Это главная страница {{ title }}. Здесь вы можете найти последние киноновинки и сериалы.</p>
+
+    {% if movies %}
+        {% for movie in movies %}
+            <a href="{{ url_for('html_movie_detail', movie_id=movie.id) }}"><h3>{{ movie.title }}</h3></a>
+            {% if movie.year > 2000 %}
+                <p>Новый фильма</p>
+            {% else %}
+                 <p>Старый фильма</p>
+            {% endif %}
+            <p>{{ movie.year }}</p>
+            <p>{{ movie.id }}</p>
+
+            <p>{{ movie.description }}</p>
+            <hr>
+        {% endfor %}
+    {% else %}
+        <p>Пока в базе нет фильмов</p>
+    {% endif %}
+{% endblock %}
+
