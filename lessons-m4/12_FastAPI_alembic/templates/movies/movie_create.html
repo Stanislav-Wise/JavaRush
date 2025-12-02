@@ -1,0 +1,33 @@
+{# Этот шаблон основан на базовом #}
+{% extends 'base.html' %}
+
+{% block title %}
+    Добавить фильм
+{% endblock %}
+
+
+{% block content %}
+
+<h1>Добро пожаловать!</h1>
+<p>Это страница фильма {{ movie.title }}. Здесь вы можете найти последние киноновинки и сериалы.</p>
+
+
+
+<div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">Добавить фильм</h5>
+
+        <form method="post" action="{{ url_for('movie_html_create') }}">
+
+        </form>
+
+
+
+
+    </div>
+</div>
+
+
+{% endblock %}
+

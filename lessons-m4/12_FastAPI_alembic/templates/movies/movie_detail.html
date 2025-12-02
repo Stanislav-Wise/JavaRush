@@ -1,0 +1,42 @@
+{# Этот шаблон основан на базовом #}
+{% extends 'base.html' %}
+
+{% block title %}
+{{ movie.title }}
+{% endblock %}
+
+
+{% block content %}
+
+<h1>Добро пожаловать!</h1>
+<p>Это страница фильма {{ movie.title }}. Здесь вы можете найти последние киноновинки и сериалы.</p>
+
+
+
+<div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">{{ movie.title }}</h5>
+
+        {% if movie.description %}
+            <p class="card-text">{{ movie.description }}</p>
+        {% else %}
+            <p class="card-text">Описания к фильму еще не добавлено</p>
+        {% endif %}
+
+        <a href="#" class="btn btn-primary"> {% if movie.year > 2000 %}
+            <p>Новый фильма</p>
+            {% else %}
+            <p>Старый фильма</p>
+            {% endif %}</a>
+
+        {% if movie.genre.name %}
+            <p class="card-text">Жанр {{ movie.genre.name }}</p>
+        {% endif %}
+
+    </div>
+</div>
+
+
+{% endblock %}
+
